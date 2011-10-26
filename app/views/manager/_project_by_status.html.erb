@@ -1,0 +1,16 @@
+
+<div class="projects-status" id="<%=status%>">
+	
+<div id="title"><%=status%></div>
+<div>	
+<ul>
+<% @projects.each do |project| %>	 
+	<% if project.status.eql? status%>
+	<li><%= step_link(project , title_truncate) %>  <%=prev_status_link project%>    <%= next_status_link project%></li>
+			<span id="description"><%=textilize project.description%></span>
+	<% end %>
+<%end%>
+</ul>
+</div>
+
+</div>

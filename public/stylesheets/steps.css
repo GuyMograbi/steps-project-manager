@@ -1,0 +1,370 @@
+html{
+	font-family: Arial;
+}
+
+body {
+	
+}
+
+#searchResult{
+	float:left;
+	width:30%;
+}
+
+#banner{
+	font-family: Impact;
+	background-color:#0080ff;
+	height:90px;
+	margin-top:-10px;
+	margin-left:-10px;
+	margin-right:-10px;
+	padding-top: 20px;
+	padding-left:10px;
+	padding-bottom:10px;
+	border-bottom: 2px solid;
+	text-align:center;
+	font-variant: small-caps;
+	font-size: 50px;
+	color:#0000a0;
+}
+
+
+#banner #logout{
+	float:right;
+	margin-right: 1em;
+	font-size: 0.5em;
+	margin-top: 1.6em;
+}
+
+
+#banner #subtext{
+	font-size: 0.5ex;	
+	position: absolute;
+	margin-top: 40px;
+	margin-left:-50px;
+	color: #ff80c0;
+	
+}
+
+
+#banner #text{
+	#position:absolute;
+	margin-left: -200px;
+	white-space: nowrap;
+}
+
+#banner #subtitle{
+	left:0px; 
+	top:0px;
+	color:black;
+	margin-left:20px;
+    position:absolute;
+	white-space:nowrap;
+	font-size:0.4em;
+}
+
+.errorExplanation{
+	background-color: #FF9196;
+	padding-left: 20em;
+}
+
+#bannerImg{
+	padding-top:5px;
+	float:left;
+	width: 8ex;
+}
+#main #error{
+	text-align: center;
+	background-color: #FF9196;
+}
+
+#sidebar_border{
+	background-image: url('/images/content_background_right.png');
+	background-repeat: repeat-y;
+	margin-left: 15em;
+}
+#breadcrumbs_border{
+	background-image: url('/images/content_background_bottom.png');
+	background-repeat: repeat-x;
+	margin-top: -4px;
+	margin-right: -10px;
+}
+
+#sidebar_border , #sidebar{	
+	min-height: 40em;
+}
+
+
+#main #notice{
+	text-align : center;
+	background-color: #B2FFDB;
+}
+
+#main{
+	padding-left: 3em;
+	padding-top: 3em;
+}
+
+#sidebar h1, #sidebar h3{
+	background-color: #001182;
+	color:white;
+	padding: 2px;
+	margin-left: -20px;
+}
+#sidebar #important-title{
+	background-color : red;
+}
+
+#columns{
+	margin-left: -10px;
+	margin-bottom: -10px;
+	
+}
+
+legend{
+	background-color:#ddddff;
+	
+}
+
+#showStep  span{
+}
+
+#showStep h1 img{
+	padding-right : 15px;
+	padding-left : 15px;
+}
+
+#showStep fieldset{
+	height: 10em;
+	border: 1px solid black;
+}
+
+#showStep #accessImage{
+	height: 3em;
+	float:left;
+	
+}
+
+#showStep #importantImage{
+	height: 3em;
+	float:left;
+}
+
+#showStep #statusImage{
+  opacity : 0.4;
+  position:absolute;
+  right:0;
+
+  top:0;
+  height:7em;
+}
+
+#showStep h1{
+	text-align: center;
+	font-variant: small-caps;
+}
+
+#showStep #description{
+	margin-left: 10em;
+	margin-right:10em;
+	height: 5em;
+	border: 1px solid black;
+	background-color:#B2FFDB;
+	overflow-y: scroll;
+}
+
+#showStep #description.high-description{
+	height : 20em;
+} 
+
+#editStep #details{
+	float:left;
+	
+	height:15em;
+	width:48%;
+}
+
+#editStep table{
+	height:100%;
+}
+
+#searchStep form{
+	text-align: center;
+}
+
+.breadcrumb{
+	font-size: 0.7em;
+	margin-top: -1.75em;
+	
+}
+
+#editStep #description{
+	float:right;
+	
+	width:48%;
+	height:15em;	
+}
+#editStep #description textarea{
+	height:15em;
+	width: 40em;
+}
+
+.steps-form{
+	border: 3px solid black;
+}
+
+
+#dashboard fieldset{
+	border: 3px solid black;
+	height: 10em;
+}
+
+#dashboard #recently_added{
+	float: left;
+	width:50%;
+}
+
+#requires_update{
+	background-color : #FFFF99;
+	text-align: center;
+	vertical-align: middle;
+}
+
+
+
+#new_projects{
+	float:left;
+	width:33%;	
+}
+
+#dashboard #new_projects fieldset{
+	border-bottom-width:0px;
+}
+
+div.projects-status{
+	padding-right:10px;
+	min-height: 10em;
+	
+}
+
+div.projects-status #title{
+	background-color:#ddddff;
+	overflow: hidden;
+	margin-top: 2em;
+	text-align:center;
+}
+
+
+#newUser{
+	float:left;
+	margin-left: 2em;
+	margin-top: 2em;
+}
+
+
+
+#started_projects{
+	float:left;
+	width:33%;
+
+}
+
+.projects-status #description{
+	display:none;
+}
+
+#completed_projects{
+	float:left;
+	width:33%;
+}
+
+#sidebar{
+	background: none repeat scroll 0 0 #ddddff;
+	float:left;
+	overflow-x: auto; 
+		
+	width:14em;
+	padding-left: 20px;
+	padding-top:-10px;
+}
+
+.time{
+ 	font-size: 1em;
+}
+
+input[type='text']{
+	width:300px;
+}
+textarea{
+	height: 180px;
+	width:300px;
+}
+
+.newStepsTable{
+	vertical-align:middle;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.newStepsTable td {
+	padding : 10px;
+	text-align: right;
+}
+
+
+#breadcrumbs{
+	font-family: Impact;
+	border-bottom:2px solid #ddddff;
+	background-color: #B5D2FF;
+	margin-right: -10px;	
+}
+
+#showStep{
+	position:relative;
+	border-color: color(100,100,100,0.5);
+	border-width: 4px;
+}
+
+a img{
+	border-width:0;
+}
+
+.highlight{
+	background-color:#CCCCCC;
+}
+
+#backgroundImg{
+	position: relative;
+	width: inherit;
+	height:inherit;
+	margin-left : 20px;
+	margin-right : 0px;
+}
+
+#usersIndex{
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	width:50%;
+	border-collapse: collapse;
+	border-width: 0.2em;
+	border-style: inset;
+}
+
+#td, th{
+#	border-collapse: collapse;
+#	border-width: 0.1em;
+#	border-style: inset;
+#	border-color: black;
+#	
+#}
+
+.login label{
+	width: 5em;
+	display: block;
+	text-align: right;
+	float:left;
+	margin-right: 2em;
+	
+	
+}

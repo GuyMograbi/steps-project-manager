@@ -1,0 +1,56 @@
+body img
+{
+	display: none;	
+}
+#banner{
+	display:none;
+}
+
+#projects{
+	display:none;
+	width:0px;
+}
+
+.breadcrumb{
+	font-size:0.7em;
+	margin-top: -1.75em;
+}
+#searchResult{
+	float:left;
+	width:30%;
+}
+
+#showStep h1{
+	font-variant: small-caps;
+	text-align: center;
+}
+
+#description{
+	background-color: #DDDDFF;
+	margin-left:auto;
+	margin-right:auto;
+	
+	max-width: 40em;
+	min-height: 5em;
+	
+	
+}
+
+#searchStep{
+	display : none;
+}
+.projects-status[id=completed] {
+	display:none;
+}
+
+.projects-status[id=new] {
+	display:none
+}
+
+.projects-status #title{
+	font-size: 2em;
+	text-decoration: underline;
+	font-variant: small-caps;
+}
+
+

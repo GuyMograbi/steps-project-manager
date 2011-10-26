@@ -1,0 +1,16 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+	<% @added = Step.mine(current_user.id).recently_updated(user_signed_in? ? 5 : 150); %>
+	
+		<fieldset>
+	
+	<legend>Recently Updated</legend>
+
+<ul>
+	<% @added[0..4].each do |project| %> 
+		<% if user_signed_in? || project.accessible?%>
+		<li><%= project_path(project,'/',true)%></li>
+		<% end %>
+    <%end%>
+</ul>
+</fieldset>

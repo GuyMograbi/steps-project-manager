@@ -1,0 +1,23 @@
+<div><%= link_to 'Back', users_path %></div>
+<div id="newUser">
+	
+
+<% form_for(@user) do |f| %>
+	
+	
+	<fieldset class="steps-form">
+  <%= f.error_messages %>
+		
+	<legend>New User</legend>
+  <div>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :password %><br />
+    <%= f.text_field :password %>
+  </div>
+    <%= f.submit 'Create' %>
+<% end %>
+	</fieldset>
+</div>

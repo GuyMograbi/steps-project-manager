@@ -1,0 +1,37 @@
+<h1>Editing step</h1>
+<div id="editStep">
+    <% form_for(@step) do |f| %>
+    <%= f.submit 'Update' %>
+    <%= link_to 'Cancel', step_path(@step) %>
+	<br/>
+	<%= f.check_box :important%>
+	<%= f.label :important%>
+    <%= f.hidden_field :user_id, :value=> current_user.id %>
+    <%= f.error_messages %>
+    <p>
+        <div id="details">
+        <p>
+            <%= f.label :title %>
+            <%= f.text_field :title %>
+        </p>
+        <%= f.label 'Belongs to' %>
+        <%=f.select  :parent_id ,Step.all.collect {|s| [project_path(s,"/") ,s.id]} ,{:prompt => "Select parent",:include_blank => true} %>
+    </p>
+	    <p>
+        <%=f.label :access %>
+        <%=f.select  :access ,Step::Access.collect {|s| s} ,{:prompt => "Access"} %>
+    </p>
+    <p>
+        <%= f.label :status %>
+        <%=f.select :status,Step::Status,:prompt => "Select a status" %>
+    </p>
+</div>
+<div id="description">
+	<p>
+    <%= f.label :description %>
+    <br/>
+    <%= f.text_area :description %>
+	</p>
+</div>
+<% end %>
+</div>
