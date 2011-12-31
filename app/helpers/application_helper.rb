@@ -48,7 +48,7 @@ module ApplicationHelper
     return unless options[:project].children.nil? || options[:project].children.empty?
           unless (_status options[:project]).eql?(Step::Status.at(options[:except]))  
    link_to(image_tag("icons/#{options[:icon]}#{options[:icon_type]}.png",
-                     :title=>yield(_status options[:project])), 
+                     :title=>yield(_status(options[:project]))), 
               :controller => 'manager', 
               :action=> options[:action], 
               :id => options[:project].id) #link_to 

@@ -1,8 +1,8 @@
 
 <div id="showStep">
-	<%= image_tag ('icons/clock_' + @step.status + '.png' , :title=>@step.status ,:alt=>@step.status, :id=> 'statusImage') %>
-	<%= image_tag ('icons/' + @step.resolved_access + '.png', :title=>@step.resolved_access, :alt=>@step.resolved_access, :id=>'accessImage')%>
-	<%= image_tag ('icons/important.png', :title=>'important', :alt=>'important', :id=>'importantImage') if @step.important%>
+	<%= image_tag('icons/clock_' + @step.status + '.png' , :title=>@step.status ,:alt=>@step.status, :id=> 'statusImage') %>
+	<%= image_tag('icons/' + @step.resolved_access + '.png', :title=>@step.resolved_access, :alt=>@step.resolved_access, :id=>'accessImage')%>
+	<%= image_tag('icons/important.png', :title=>'important', :alt=>'important', :id=>'importantImage') if @step.important%>
 	<h1>
 	<%= prev_status_link @step , '_big'%><%=h @step.title %><%= next_status_link @step , '_big'%>
 	</h1>
@@ -12,7 +12,12 @@
 <%=link_to (h @step.parent.title), step_path(@step.parent) unless @step.parent.nil?%>
 <%= link_to image_tag('icons/edit.png', :title=>'Edit'), edit_step_path(@step) %> 
 <%= link_to image_tag('icons/add.png', :title=>'New'), new_step_path(:parent=>@step)%>
-<td><%= link_to image_tag('icons/bin.png',:title=>'Delete'), @step, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% form_for @step, :html => { :method => "delete", :style =>  'display: inline' }  do |f| %>
+        <%= f.submit 'delete', :type => :image, :src => '/images/icons/bin.png' %>
+    <% end %>
+
+<td><%= button_to image_tag('icons/bin.png',:title=>'Delete'), @step, :confirm => 'Are you sure?', :method => :delete %></td>
+
 <div id="description" class="<%=  'high-description' if @step.children.empty?%>">	
   <%= textilize_without_paragraph @step.description %>
 </div>
