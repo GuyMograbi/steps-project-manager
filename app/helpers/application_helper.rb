@@ -3,10 +3,10 @@ module ApplicationHelper
  
   
   def project_path (project , delim = ">", as_link = false)
-    res = as_link ?   step_link(project) : step_title(project); 
+    res = as_link ?   step_link(project) : step_title(project)
     
     while parent project
-        project = project.parent;
+        project = project.parent
         res = (as_link ? step_link(project): step_title(project)) + delim + res
     end
  
@@ -27,7 +27,7 @@ module ApplicationHelper
                   :icon_type => type,
                   :project => project, 
                   :action => 'promote',
-                  :except => -1){|status|next_status(status)}
+                  :except => [-1,2]){|status|next_status(status)}
     
   end
   
@@ -38,21 +38,19 @@ module ApplicationHelper
                   :icon_type => type,
                   :project => project, 
                   :action => 'demote',
-                  :except => 0){|status|prev_status(status)}  
+                  :except => [0]){|status|prev_status(status)}
   end
  
  # ~!~ need to make this a form! and POST!
  # img, project, action, unless_index
  def status_link (options = {})
-   
-    return unless options[:project].children.nil? || options[:project].children.empty?
-          unless (_status options[:project]).eql?(Step::Status.at(options[:except]))  
+    # we don't want to show next/prev links if there are children / the options state "except"
+    return if !options[:project].children.blank? || (!options[:except].nil? && options[:except].include?(Step::Status.index(_status options[:project])))
    link_to(image_tag("icons/#{options[:icon]}#{options[:icon_type]}.png",
                      :title=>yield(_status(options[:project]))), 
               :controller => 'manager', 
               :action=> options[:action], 
               :id => options[:project].id) #link_to 
-              end
               
  end
  
@@ -82,7 +80,7 @@ module ApplicationHelper
     a == 'search'
     
   end
-  
+
   protected
   
   def mode_print? 
@@ -108,8 +106,4 @@ module ApplicationHelper
   def _status (step)
     step.status
   end
-  
-  
-  
-  
 end
