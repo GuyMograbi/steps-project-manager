@@ -50,7 +50,11 @@ class Step < ActiveRecord::Base
     end
     
     def accessible?
-      return inherits_public?;      
+      inherits_public?;      
+    end
+
+    def children?
+      !children.blank?
     end
     
     def pending? 

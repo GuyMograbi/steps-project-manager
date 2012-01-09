@@ -5,9 +5,12 @@
 		
 		<title>Steps - Project Manager <%= ": #{@subtitle}" unless @subtitle.nil? %> [<%=current_user.email if user_signed_in?%>]</title>
 		<%= stylesheet_link_tag "steps", :media=>"screen"%>
+		<%= stylesheet_link_tag "jquery/cupertino/jquery-ui-1_8_16_custom", :media=>"screen"%>
 		<%= stylesheet_link_tag "print", :media=>"print"%>
 		<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" /> 
         <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+        <%= javascript_include_tag :all %>
+
 	<script type="text/javascript">
 
   var _gaq = _gaq || [];
@@ -25,7 +28,7 @@
 
 
 	<body height="100%">
-		
+
 		<div id="banner">
 			<span id="subtitle"><%=@subtitle%></span>
 			<%= image_tag("steps-logo.png", :id=>'bannerImg')%>

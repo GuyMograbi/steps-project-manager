@@ -9,6 +9,10 @@ ActionController::Routing::Routes.draw do |map|
   
   map.devise_for :users
 
+  map.promote_step '/manager/promote/:id', :controller=>'manager', :action => 'promote', :conditions => {:method => 'post'}
+  map.demote_step '/manager/demote/:id', :controller => 'manager', :action => 'demote', :conditions => {:method => 'post'}
+
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

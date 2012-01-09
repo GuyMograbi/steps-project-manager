@@ -6,6 +6,13 @@ body {
 	
 }
 
+.projects-status img
+{
+    cursor:pointer;
+}
+
+
+
 #searchResult{
 	float:left;
 	width:30%;
@@ -230,7 +237,11 @@ legend{
 	vertical-align: middle;
 }
 
-
+#new.projects-status .demote_icon,
+#completed.projects-status .promote_icon 
+{
+    display: none
+}
 
 #new_projects{
 	float:left;

@@ -20,60 +20,23 @@ module ApplicationHelper
   def step_breadcrumb (step, delim = "&gt;", bc = "")
        project_path(step,delim,true) +delim + bc
   end
-  
-  def next_status_link (project, type = '')
-    # call promote only if not last (-1)
-     status_link( :icon => "right",
-                  :icon_type => type,
-                  :project => project, 
-                  :action => 'promote',
-                  :except => [-1,2]){|status|next_status(status)}
-    
+ 
+  def can_demote?(project)
+    !project.children? && !project.new?
   end
-  
-  
-  def prev_status_link (project, type='')
-    # call de mote only if not first (0)
-     status_link( :icon => "left",
-                  :icon_type => type,
-                  :project => project, 
-                  :action => 'demote',
-                  :except => [0]){|status|prev_status(status)}
+
+  def can_promote?(project)
+    !project.children? && !project.completed? 
   end
- 
- # ~!~ need to make this a form! and POST!
- # img, project, action, unless_index
- def status_link (options = {})
-    # we don't want to show next/prev links if there are children / the options state "except"
-    return if !options[:project].children.blank? || (!options[:except].nil? && options[:except].include?(Step::Status.index(_status options[:project])))
-   link_to(image_tag("icons/#{options[:icon]}#{options[:icon_type]}.png",
-                     :title=>yield(_status(options[:project]))), 
-              :controller => 'manager', 
-              :action=> options[:action], 
-              :id => options[:project].id) #link_to 
-              
- end
- 
- def next_status(status)
-    return Step::Status[status_index(status) + 1]
- end
- 
- def prev_status(status)
-  return Step::Status[status_index(status) -1]  
- 
- end
-     
-   
- 
-  def status_index(status)
-    Step::Status.each_with_index do |element, idx|  
-      if (element.eql? status)
-        return idx;
-      end
-    end
+
+  def next_promote_status(project)
+    Step::Status[Step::Status.index(project.status) + 1]
   end
-  
-  
+
+  def next_demote_status(project)
+    Step::Status[Step::Status.index(project.status) - 1]  
+  end
+
   def printable?
     a = params[:action] 
     a == 'show' ||

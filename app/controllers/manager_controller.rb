@@ -3,11 +3,15 @@ class ManagerController < ApplicationController
   end
 
   def promote
-    update_status {|status| @template.next_status(status)}
+    update_status {|status| Step::Status[Step::Status.index(status)+1]}
   end
   
   def demote
-    update_status {|status| @template.prev_status(status)}
+    update_status {|status| Step::Status[Step::Status.index(status)-1]}
+  end
+
+  def edit
+    
   end
   
   
@@ -43,7 +47,7 @@ class ManagerController < ApplicationController
       if (@project.nil?)
         flash[:error] = "Step not found"
         redirect_to_dashboard
-      
+
       elseif !has_write_to_project?(@project)
         flash[:errors] = "No Permissions"
         redirect_to_dashboard # should be logout
@@ -51,15 +55,11 @@ class ManagerController < ApplicationController
         @project.status = yield(@project.status)
         @project.save!
         @project.parent.bubble_status unless @project.parent.nil?
+        @step = @project
+        render(:partial => 'project_item', :object=>@step, :layout => false, :locals => {:status => @project.status}) and return if request.xhr?
         redirect_to :back # might not succeed
       end
 #    redirect_to :action=>'dashboard'
-    
-  rescue Exception => err
-      puts err.inspect
-      puts err.backtrace
-      redirect_to_dashboard
     end
-    
   end
 end

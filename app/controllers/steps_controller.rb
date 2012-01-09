@@ -11,7 +11,7 @@ class StepsController < ApplicationController
       format.html # index.html.erb
       format.xml  { render :xml => @steps }
     end
-  end
+   end
 
   # GET /steps/1
   # GET /steps/1.xml
@@ -27,10 +27,6 @@ class StepsController < ApplicationController
         end
         format.xml  { render :xml => @step }
       end
-    rescue Exception => err
-      logger.error err
-      flash[:err] = err.message
-      redirect_to(:controller => "manager", :action => "dashboard")
     end
 
   end

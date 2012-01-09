@@ -4,7 +4,7 @@
 	<%= image_tag('icons/' + @step.resolved_access + '.png', :title=>@step.resolved_access, :alt=>@step.resolved_access, :id=>'accessImage')%>
 	<%= image_tag('icons/important.png', :title=>'important', :alt=>'important', :id=>'importantImage') if @step.important%>
 	<h1>
-	<%= prev_status_link @step , '_big'%><%=h @step.title %><%= next_status_link @step , '_big'%>
+	<%= link_to(image_tag('/images/icons/left_big.png'),demote_step_path(@step)) if can_demote?(@step)%><%=h @step.title %><%= link_to(image_tag("/images/icons/right_big.png"),promote_step_path(@step)) if can_promote?(@step)%>
 	</h1>
 <div id="controls">
   
