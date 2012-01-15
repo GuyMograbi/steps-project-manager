@@ -15,7 +15,7 @@
             <%= f.text_field :title %>
         </p>
         <%= f.label 'Belongs to' %>
-        <%=f.select  :parent_id ,Step.all.collect {|s| [project_path(s,"/") ,s.id]} ,{:prompt => "Select parent",:include_blank => true} %>
+        <%=f.select  :parent_id ,Step.mine(current_user).collect {|s| [project_path(s,"/") ,s.id]} ,{:prompt => "Select parent",:include_blank => true} %>
     </p>
 	    <p>
         <%=f.label :access %>
