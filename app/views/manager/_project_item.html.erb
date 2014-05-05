@@ -1,6 +1,0 @@
-<% if !(project_item.nil?) && ( project_item.status.eql? status) then%>
-	<li><%= step_link(project_item , title_truncate)-%>
-        <%=image_tag('/images/icons/left.png', :class=>"demote_icon", :onclick=>"change_step_status(this,'#{demote_step_path(project_item)}','#{status}', '#{next_demote_status(project_item)}')") if !project_item.children?-%>
-        <%=image_tag("/images/icons/right.png", :class=>"promote_icon", :onclick=>"change_step_status(this,'#{promote_step_path(project_item)}','#{status}', '#{next_promote_status(project_item)}')") if !project_item.children?-%>
-     </li>			
-<% end %>
