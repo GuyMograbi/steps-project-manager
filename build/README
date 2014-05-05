@@ -1,0 +1,18 @@
+to install run the following command
+
+
+```
+
+wget -O - "https://dl.dropboxusercontent.com/s/02ijsyuq04zpa5v/install.sh?dl=1&token_hash=AAGTocQUgE54TqWMhTIjREvsgc-mpjN-IizdS2wYqP1fmg" | bash
+
+```
+
+
+to upgrade use the following command
+
+
+```
+
+wget -O - "https://dl.dropboxusercontent.com/s/02ijsyuq04zpa5v/install.sh?dl=1&token_hash=AAGTocQUgE54TqWMhTIjREvsgc-mpjN-IizdS2wYqP1fmg" | bash -s upgrade
+
+```
